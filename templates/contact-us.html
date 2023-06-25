@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block pagetitle %}
+Contact Us
+{% endblock pagetitle %}
+
+{% block body %}
+
+<style>
+  .member-card {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .member-name {
+    font-size: 24px;
+    margin-top: 20px;
+  }
+
+  .member-description {
+    font-weight: 300;
+    margin-top: 10px;
+  }
+
+  .member-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+  }
+</style>
+
+<div class="row mb-5 text-center text-white laptop">
+    <div class="col-lg-10 mx-auto">
+        <h1 class="display-4" style="padding-top: 2%;font-weight: 400;color: white;"><b>Meet Our team</b></h1>
+    </div>
+</div>
+
+<div class="row p-3">
+    <div class="col-md-6 col-lg-3">
+        <div class="member-card">
+            <img src="{{ url_for('static', filename='kart_nice_pic.jpg') }}" alt="Member 1" class="member-image">
+
+            <h3 class="member-name">Kartikeyan Bhatt</h3>
+            <p class="member-description">Worked on Software and operations</p>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+        <div class="member-card">
+            <img src="{{ url_for('static', filename='ayush.jpg') }}" alt="Member 1" class="member-image">
+            <h3 class="member-name">Ayush Chaudhary</h3>
+            <p class="member-description">Worked on hardware and software</p>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+        <div class="member-card standout-member">
+            <img src="{{ url_for('static', filename='harsh.jpg') }}" alt="Member 1" class="member-image">
+            <h3 class="member-name">Harsh Sankalecha</h3>
+            <p class="member-description">Worked on hardware and overall operations</p>
+        </div>
+    </div>
+    
+    <div class="col-md-6 col-lg-3">
+        <div class="member-card">
+            <img src="https://i.pinimg.com/originals/97/31/02/9731022f0be7c965e880505461643850.jpg" alt="Member 1" class="member-image">
+            <h3 class="member-name">Sankulp Rustagi</h3>
+            <p class="member-description">Worked on hardware and project presentation</p>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

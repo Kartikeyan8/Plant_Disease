@@ -1,0 +1,169 @@
+<html>
+    {% extends 'base.html' %}
+
+    {% block pagetitle %}
+        AI Engine
+    {% endblock pagetitle %}
+
+    {% block body %}
+    <style>
+        .container {
+            padding-top: 2%;
+        }
+
+        .lead {
+            font-weight: 900;
+            
+            font-size: 40px;
+            
+            color: white;
+
+        }
+
+        .section-container {
+            height: 95%;
+            padding: 2rem;
+        }
+
+        .section-title {
+            font-weight: bold;
+        }
+
+        .section-content {
+            margin-top: 1rem;
+        }
+
+        .custom-file {
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .custom-file input[type="file"] {
+            display: none;
+        }
+
+        .custom-file-label {
+    cursor: pointer;
+    background-color: #28a745;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.custom-file-label:hover {
+    background-color: #218838;
+}
+
+
+        .image-preview {
+            display: block;
+            margin: auto;
+            width: 200px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-submit {
+            display: block;
+            margin: 0 auto;
+            margin-top: 1rem;
+            border: none;
+            background-color: #28a745;
+            color: white;
+            padding: 0.5rem 1rem;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .btn-submit:hover {
+            background-color: #218838;
+        }
+
+        .more-info {
+            display: block;
+            margin: 0 auto;
+            margin-top: 1rem;
+            border: none;
+            background-color: #28a745;
+            color: white;
+            padding: 0.5rem 1rem;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .more-info:hover {
+            background-color: #218838;
+        }
+    </style>
+
+    <div class="container">
+        <div class="row mb-5 text-center text-white">
+            <div class="col-lg-10 mx-auto">
+                
+                <p class="lead">Let AI Engine Help You Detect Plant Diseases</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 mx-auto">
+                <div class="p-5 bg-white shadow rounded-lg section-container">
+                    <h5 class="section-title">Why is it necessary to detect diseases in plants?</h5>
+                    <p class="section-content">Plant diseases affect the growth of plants. Early detection of diseases can provide greater transparency and allow for timely disease control measures. Proper disease diagnosis is crucial to prevent plant losses and implement effective control strategies.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4 mx-auto">
+                <div class="p-5 bg-white shadow rounded-lg section-container">
+                    <img src="https://www.pngjoy.com/pngl/250/4840262_plants-png-indoors-tropical-plant-png-hd-png.png" alt="Plant Image" class="image-preview">
+                    <form action="/submit" method="POST" enctype="multipart/form-data">
+                        <div class="custom-file overflow-hidden">
+                            <input type="file" id="actual-btn" hidden name="image" />
+                            <label for="actual-btn" class="custom-file-label">Choose File</label>
+                            <span id="file-chosen">No file chosen</span>
+                        </div>
+                        <h6 class="text-center mt-4 text-muted">Simply upload an image of your plant's leaf and see the magic of AI.</h6>
+                        <center>
+                            <button type="submit" class="btn-submit">Submit</button>
+                        </center>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-md-4 mx-auto">
+                <div class="p-5 bg-white shadow rounded-lg section-container">
+                    <h5 class="section-title">Prevent Plant Diseases with the following steps:</h5>
+                    <ol class="section-content">
+                        <li>Follow Good Sanitation Practices.</li>
+                        <li>Fertilize to Keep Your Plants Healthy.</li>
+                        <li>Inspect Plants for Diseases Before You Bring Them Home.</li>
+                        <li>Allow the Soil to Warm Before Planting.</li>
+                        <li>Ensure a Healthy Vegetable Garden By Rotating Crops.</li>
+                        <li>Provide Good Air Circulation.</li>
+                        <li>Remove Diseased Stems and Foliage.</li>
+                    </ol>
+                    <a target="_blank" href="https://www.thespruce.com/prevent-plant-diseases-in-your-garden-2539511" class="more-info">More Info</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const actualBtn = document.getElementById('actual-btn');
+        const fileChosen = document.getElementById('file-chosen');
+
+        actualBtn.addEventListener('change', function () {
+            fileChosen.textContent = this.files[0].name;
+        });
+    </script>
+    {% endblock body %}
+</html>

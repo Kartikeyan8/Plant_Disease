@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+
+{% block pagetitle %}
+{{ title }}
+{% endblock pagetitle %}
+
+{% block body %}
+
+<style>
+    .container {
+        padding-top: 2%;
+    }
+
+    .product-image {
+        width: 350px;
+        height: 350px;
+    }
+
+    .section-container {
+        height: 95%;
+        padding: 2rem;
+    }
+
+    .section-title {
+        font-weight: bold;
+    }
+
+    .section-content {
+        margin-top: 1rem;
+    }
+
+    .buy-button {
+        background-color: #05380b;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .buy-button:hover {
+        background-color: #3e8e41;
+    }
+
+    @media (max-width: 768px) {
+        .product-image {
+            width: 100%;
+            height: auto;
+        }
+    }
+</style>
+
+<div class="container">
+    <div class="row mb-5 text-center text-white">
+        <div class="col-lg-10 mx-auto">
+            <h1 class="display-4" style="font-weight: 400;color: rgb(4, 54, 4);"><b>{{ title }} 🍂</b></h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="p-3 bg-white shadow rounded-lg text-center">
+                <img src="{{ image_url }}" class="product-image" alt="Product Image">
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="p-5 bg-white shadow rounded-lg section-container">
+                <h5 class="section-title">
+                    {% if pred==3 or pred==5 or pred==7 or pred==11 or pred==15 or pred==18 or pred==20 or pred==23 or
+                    pred==24 or pred==25 or pred==28 or pred==38 %}
+                    Tips to Grow Healthy Plants:
+                    {% else %}
+                    Brief Description:
+                    {% endif %}
+                </h5>
+                <p class="section-content">{{ desc }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="p-5 bg-white shadow rounded-lg section-container">
+                <h5 class="section-title">
+                    {% if pred==3 or pred==5 or pred==7 or pred==11 or pred==15 or pred==18 or pred==20 or pred==23 or
+                    pred==24 or pred==25 or pred==28 or pred==38 %}
+                    Benefits:
+                    {% else %}
+                    Prevent This Plant Disease by Following Below Steps:
+                    {% endif %}
+                </h5>
+                <p class="section-content">{{ prevent }}</p>
+            </div>
+        </div>
+
+        {% if pred!=4 %}
+        <div class="col-md-6 mx-auto">
+            <div class="p-5 bg-white shadow rounded-lg section-container">
+                <h5 class="section-title">
+                    {% if pred==3 or pred==5 or pred==7 or pred==11 or pred==15 or pred==18 or pred==20 or pred==23 or
+                    pred==24 or pred==25 or pred==28 or pred==38 %}
+                    Fertilizer:
+                    {% else %}
+                    Supplements:
+                    {% endif %}
+                </h5>
+                <div class="text-center">
+                    <br>
+                    <img src="{{ simage }}" class="product-image" alt="Product Image">
+                    <br>
+                    <br>
+                    <h6>{{ sname }}</h6>
+                    <a target="_blank" href="{{ buy_link }}" class="buy-button">Buy Product</a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock body %}
