@@ -8,7 +8,7 @@ Supplement Market
 
 <style>
     .view-prod-button{
-        background-color: #4CAF50;
+        background-color: grey;
         border: none;
         color: white;
         padding: 10px 20px;
@@ -21,6 +21,11 @@ Supplement Market
     }
     .view-prod-button:hover{
         background-color: #3e8e41;
+    }
+    .para-name{
+        font-size: 18px;
+        font-weight: 500;
+        color: black;
     }
 </style>
 <br>
@@ -47,7 +52,7 @@ Supplement Market
                 <br>
                 <br>
                 <h6>For {{ disease[index] }}</h6>
-                <p>{{ supplement_name[index] }}</p>
+                <p class="para-name">{{ supplement_name[index] }}</p>
                 <a target="_blank" href={{ buy[index] }}>
                     <button type="button" class="view-prod-button">View Product</button>
                 </a>

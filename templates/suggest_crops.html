@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+
+{% block pagetitle %}
+    Suggest Crops
+{% endblock pagetitle %}
+
+{% block body %}
+<style>
+    .container {
+        
+        justify-content: center;
+        align-items: center;
+    
+    }
+
+    .form {
+        max-width: 1900px;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .form-header h2 {
+        color: #333333;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #333333;
+    }
+
+    .form-select {
+        width: 100%;
+        padding: 8px;
+        border-radius: 3px;
+        border: 1px solid #cccccc;
+    }
+
+    .form-button {
+        width: 10%;
+        padding: 10px;
+        background-color: #007bff;
+        border: none;
+        color: #ffffff;
+        font-weight: bold;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    .form-button:hover {
+        background-color: #0056b3;
+    }
+
+    .crop-suggestions {
+        margin-top: 20px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .crop-image {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .crop-image img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
+    }
+</style>
+
+<div class="container">
+    <form class="form" id="crop-suggestion-form">
+        <div class="form-header">
+            <h2>Crop Suggestion</h2>
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="soil-type">Soil Type:</label>
+            <select class="form-select" id="soil-type" required>
+                <option value="" disabled selected>Select Soil Type</option>
+                <option value="Sandy">Sandy</option>
+                <option value="Clayey">Clayey</option>
+                <option value="Loamy">Loamy</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="water-availability">Water Availability:</label>
+            <select class="form-select" id="water-availability" required>
+                <option value="" disabled selected>Select Water Availability</option>
+                <option value="Scarce">Scarce</option>
+                <option value="Moderate">Moderate</option>
+                <option value="Abundant">Abundant</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="money-availability">Money Availability:</label>
+            <select class="form-select" id="money-availability" required>
+                <option value="" disabled selected>Select Money Availability</option>
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+            </select>
+        </div>
+        <button class="form-button" type="submit">Get Crop Suggestion</button>
+    </form>
+    <div id="crop-suggestions" class="crop-suggestions"></div>
+    
+</div>
+
+<script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+<script>
+    document.getElementById("crop-suggestion-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        var soilType = document.getElementById("soil-type").value;
+        var waterAvailability = document.getElementById("water-availability").value;
+        var moneyAvailability = document.getElementById("money-availability").value;
+
+        var fileUrl = "/static/crop-data.json";
+
+        fetch(fileUrl)
+            .then(function(response) {
+                if (!response.ok) {
+                    throw new Error("Failed to fetch the crop data file.");
+                }
+                return response.json();
+            })
+            .then(function(cropData) {
+                var cropSuggestions = cropData.filter(function(crop) {
+                    return (
+                        crop.soilType.toLowerCase() === soilType.toLowerCase() &&
+                        crop.waterAvailability.toLowerCase() === waterAvailability.toLowerCase() &&
+                        crop.moneyAvailability.toLowerCase() === moneyAvailability.toLowerCase()
+                    );
+                });
+
+                var cropSuggestionsText = "";
+                var cropImageHtml = "";
+
+                if (cropSuggestions.length > 0) {
+                    cropSuggestionsText = "Recommended crops: " + cropSuggestions[0].cropSuggestions;
+                    
+                } else {
+                    cropSuggestionsText = "No crop suggestions found for the given inputs.";
+                }
+
+                document.getElementById("crop-suggestions").textContent = cropSuggestionsText;
+                
+            })
+            .catch(function(error) {
+                console.log(error);
+                document.getElementById("crop-suggestions").textContent = "Failed to fetch the crop data. Please try again.";
+            });
+    });
+</script>
+{% endblock body %}

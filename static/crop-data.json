@@ -1,0 +1,165 @@
+[
+  {
+    "soilType": "Sandy",
+    "waterAvailability": "Scarce",
+    "moneyAvailability": "Low",
+    "cropSuggestions": " Barley, Wheat",
+     "imageUrl": "/static/suggested_images/1.jpg"
+  },
+  {
+    "soilType": "Sandy",
+    "waterAvailability": "Scarce",
+    "moneyAvailability": "Medium",
+    "cropSuggestions": "Sorghum, Pearl Millet"
+  },
+  {
+    "soilType": "Sandy",
+    "waterAvailability": "Scarce",
+    "moneyAvailability": "High",
+    "cropSuggestions": "Chickpeas, Lentils"
+  },
+  {
+    "soilType": "Sandy",
+    "waterAvailability": "Moderate",
+    "moneyAvailability": "Low",
+    "cropSuggestions": "Maize, Millet"
+  },
+  {
+    "soilType": "Sandy",
+    "waterAvailability": "Moderate",
+    "moneyAvailability": "Medium",
+    "cropSuggestions": "Soybeans, Groundnuts"
+  },
+  {
+    "soilType": "Sandy",
+    "waterAvailability": "Moderate",
+    "moneyAvailability": "High",
+    "cropSuggestions": "Cotton, Sunflower"
+  },
+  {
+    "soilType": "Sandy",
+    "waterAvailability": "Abundant",
+    "moneyAvailability": "Low",
+    "cropSuggestions": "Watermelon, Muskmelon"
+  },
+  {
+    "soilType": "Sandy",
+    "waterAvailability": "Abundant",
+    "moneyAvailability": "Medium",
+    "cropSuggestions": "Mango, Coconut"
+  },
+  {
+    "soilType": "Sandy",
+    "waterAvailability": "Abundant",
+    "moneyAvailability": "High",
+    "cropSuggestions": "Cashew, Date Palm"
+  },
+  {
+    "soilType": "Clayey",
+    "waterAvailability": "Scarce",
+    "moneyAvailability": "Low",
+    "cropSuggestions": "Chickpeas, Lentils"
+  },
+  {
+    "soilType": "Clayey",
+    "waterAvailability": "Scarce",
+    "moneyAvailability": "Medium",
+    "cropSuggestions": "Groundnuts, Sesame"
+  },
+  {
+    "soilType": "Clayey",
+    "waterAvailability": "Scarce",
+    "moneyAvailability": "High",
+    "cropSuggestions": "Rice, Sugarcane"
+  },
+  {
+    "soilType": "Clayey",
+    "waterAvailability": "Moderate",
+    "moneyAvailability": "Low",
+    "cropSuggestions": "Soybeans, Pearl Millet"
+  },
+  {
+    "soilType": "Clayey",
+    "waterAvailability": "Moderate",
+    "moneyAvailability": "Medium",
+    "cropSuggestions": "Cotton, Mustard"
+  },
+  {
+    "soilType": "Clayey",
+    "waterAvailability": "Moderate",
+    "moneyAvailability": "High",
+    "cropSuggestions": "Wheat, Lentils"
+  },
+  {
+    "soilType": "Clayey",
+    "waterAvailability": "Abundant",
+    "moneyAvailability": "Low",
+    "cropSuggestions": "Watermelon, Pumpkin"
+  },
+  {
+    "soilType": "Clayey",
+    "waterAvailability": "Abundant",
+    "moneyAvailability": "Medium",
+    "cropSuggestions": "Sugarcane, Maize"
+  },
+  {
+    "soilType": "Clayey",
+    "waterAvailability": "Abundant",
+    "moneyAvailability": "High",
+    "cropSuggestions": "Banana, Papaya"
+  },
+  {
+    "soilType": "Loamy",
+    "waterAvailability": "Scarce",
+    "moneyAvailability": "Low",
+    "cropSuggestions": "Soybeans, Millet"
+  },
+  {
+    "soilType": "Loamy",
+    "waterAvailability": "Scarce",
+    "moneyAvailability": "Medium",
+    "cropSuggestions": "Groundnuts, Flaxseed"
+  },
+  {
+    "soilType": "Loamy",
+    "waterAvailability": "Scarce",
+    "moneyAvailability": "High",
+    "cropSuggestions": "Sugarcane, Potato"
+  },
+  {
+    "soilType": "Loamy",
+    "waterAvailability": "Moderate",
+    "moneyAvailability": "Low",
+    "cropSuggestions": "Wheat, Sunflower"
+  },
+  {
+    "soilType": "Loamy",
+    "waterAvailability": "Moderate",
+    "moneyAvailability": "Medium",
+    "cropSuggestions": "Corn, Soybeans"
+  },
+  {
+    "soilType": "Loamy",
+    "waterAvailability": "Moderate",
+    "moneyAvailability": "High",
+    "cropSuggestions": "Cotton, Sunflower"
+  },
+  {
+    "soilType": "Loamy",
+    "waterAvailability": "Abundant",
+    "moneyAvailability": "Low",
+    "cropSuggestions": "Watermelon, Pumpkin"
+  },
+  {
+    "soilType": "Loamy",
+    "waterAvailability": "Abundant",
+    "moneyAvailability": "Medium",
+    "cropSuggestions": "Sugarcane, Maize"
+  },
+  {
+    "soilType": "Loamy",
+    "waterAvailability": "Abundant",
+    "moneyAvailability": "High",
+    "cropSuggestions": "Banana, Papaya"
+  }
+]

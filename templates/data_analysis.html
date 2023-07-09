@@ -1,0 +1,327 @@
+<html>
+    {% extends 'base.html' %}
+
+    {% block pagetitle %}
+        AI Engine
+    {% endblock pagetitle %}
+
+    {% block body %}
+ <style>
+        body {
+    
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    padding-top: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    
+}
+
+.hidden {
+    display: none;
+}
+
+.result-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.result-image {
+    width: 70%;
+    max-width: 900px;
+}
+
+.result-info {
+    background-color: white;
+    width: 90%;
+    max-width: 600px;
+    color: black;
+    padding: 20px;
+    margin-left: 20px;
+}
+
+.result-info h3 {
+    margin-top: 0;
+}
+
+.label-info {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.link-to-convert {
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: #000000;
+}
+
+.link-to-convert:hover {
+    color: #000000;
+}
+
+.result-head {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.submit-button {
+    margin-top: 12px;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.submit-button:hover {
+    background-color: #45a049;
+}
+
+.info-sidebar {
+    background-color: #f5f5f5;
+    padding: 10px;
+    width: 250px;
+    margin-left: 20px;
+}
+
+.info-sidebar h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.info-sidebar ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.info-sidebar ul li {
+    margin-bottom: 5px;
+}
+
+
+    </style>
+    <script>
+        function submitForm() {
+            var cropType = document.getElementById("crop-type").value;
+            var temperature = parseFloat(document.getElementById("temperature").value);
+            var humidity = parseFloat(document.getElementById("humidity").value);
+            var moisture = parseFloat(document.getElementById("moisture").value);
+            
+            var resultImage = document.getElementById("result-image");
+            var resultInfo = document.getElementById("result-info");
+            var resultHead = document.getElementById("result-head");
+            var resultInfoClass = document.getElementById("result-info-class");
+
+            // Perform the computation based on the input values and crop type
+            var imagePath = "";
+            var infoText = "";
+            var headText = "";
+
+            if (cropType === "rice") {
+    if (temperature > 36) {
+        alert("Temperature should be less than 36");
+        return false;
+    }
+    if (27 <= temperature && temperature <= 30 && humidity >= 90) {
+        imagePath = "/static/images/rice_blast.jpg";
+        infoText = "This is a rice blast disease.";
+        headText = "Rice Blast";
+    } else if (20 <= temperature && temperature <= 30 && 80 <= humidity && humidity <= 90) {
+        imagePath = "/static/images/sheath_blight.jpg";
+        infoText = "This is a sheath blight disease.";
+        headText = "Sheath Blight";
+    } else if (25 <= temperature && temperature <= 27 && humidity >= 90) {
+        imagePath = "/static/images/brown_spot.jpg";
+        infoText = "This is a brown spot disease.";
+        headText = "Brown Spot";
+    } else if (20 <= temperature && temperature <= 35 && 70 <= humidity && humidity <= 80) {
+        imagePath = "/static/images/rice_healthy.jpg";
+        infoText = "The crop is healthy.";
+        headText = "Healthy";
+    }
+} else if (cropType === "sugarcane") {
+    if (temperature > 36) {
+        alert("Temperature should be less than 36");
+        return false;
+    }
+    if (25 <= temperature && temperature <= 30 && humidity >= 80) {
+        imagePath = "/static/images/red_rot.jpg";
+        infoText = "This is a red rot disease.";
+        headText = "Red Rot";
+    } else if (23 <= temperature && temperature <= 25 && 85 <= humidity && humidity <= 90) {
+        imagePath = "/static/images/smut.jpg";
+        infoText = "This is a smut disease.";
+        headText = "Smut";
+    } else if (25 <= temperature && temperature <= 35 && humidity >= 80) {
+        imagePath = "/static/images/leaf_scald.jpg";
+        infoText = "This is a leaf scald disease.";
+        headText = "Leaf Scald";
+    } else if (20 <= temperature && temperature <= 35 && 60 <= humidity && humidity <= 80) {
+        imagePath = "/static/images/sugarcane_healthy.jpg";
+        infoText = "The crop is healthy.";
+        headText = "Healthy";
+    }
+} else if (cropType === "coffee") {
+    if (temperature > 36) {
+        alert("Temperature should be less than 36");
+        return false;
+    }
+    if (15 <= temperature && temperature <= 20 && 70 <= humidity && humidity <= 90) {
+        imagePath = "/static/images/leaf_rust.jpg";
+        infoText = "This is a leaf rust disease.";
+        headText = "Leaf Rust";
+    } else if (20 <= temperature && temperature <= 24 && 70 <= humidity && humidity <= 80) {
+        imagePath = "/static/images/berry.jpg";
+        infoText = "This is a berry disease.";
+        headText = "Berry Disease";
+    } else if (20 <= temperature && temperature <= 30 && 80 <= humidity && humidity <= 90) {
+        imagePath = "/static/images/brown_eye_spot.jpg";
+        infoText = "This is a brown eye spot disease.";
+        headText = "Brown Eye Spot Disease";
+    } else if (25 <= temperature && temperature <= 28 && 70 <= humidity && humidity <= 90) {
+        imagePath = "/static/images/coffee_healthy.jpg";
+        infoText = "The crop is healthy.";
+        headText = "Healthy";
+    }
+} else if (cropType === "maize") {
+    if (temperature > 36) {
+        alert("Temperature should be less than 36");
+        return false;
+    }
+    if (20 <= temperature && temperature <= 25 && 75 <= humidity && humidity <= 85) {
+        imagePath = "/static/images/maize_rust.jpg";
+        infoText = "This is a maize rust disease.";
+        headText = "Maize Rust";
+    } else if (18 <= temperature && temperature <= 20 && 75 <= humidity && humidity <= 80) {
+        imagePath = "/static/images/maize_smut.jpg";
+        infoText = "This is a maize smut disease.";
+        headText = "Maize Smut Disease";
+    } else if (20 <= temperature && temperature <= 30 && 70 <= humidity && humidity <= 80) {
+        imagePath = "/static/images/stalk_rot.jpg";
+        infoText = "This is a stalk rot disease.";
+        headText = "Stalk Rot Disease";
+    } else if (30 <= temperature && temperature <= 32 && 50 <= humidity && humidity <= 60) {
+        imagePath = "/static/images/maize_healthy.jpg";
+        infoText = "The crop is healthy.";
+        headText = "Healthy";
+    }
+} else if (cropType === "ragi") {
+    if (temperature > 36) {
+        alert("Temperature should be less than 36");
+        return false;
+    }
+    if (25 <= temperature && temperature <= 30 && humidity <= 80) {
+        imagePath = "/static/images/ragi_blast.jpg";
+        infoText = "This is a blast disease.";
+        headText = "Blast";
+    } else if (20 <= temperature && temperature <= 24 && 80 <= humidity && humidity <= 90) {
+        imagePath = "/static/images/ergot.jpg";
+        infoText = "This is an ergot disease.";
+        headText = "Ergot Disease";
+    } else if (20 <= temperature && temperature <= 25 && humidity <= 90) {
+        imagePath = "/static/images/downy_mildew.jpg";
+        infoText = "This is a downy mildew disease.";
+        headText = "Downy Mildew Disease";
+    } else if (30 <= temperature && temperature <= 35 && 60 <= humidity && humidity <= 70) {
+        imagePath = "/static/images/ragi_healthy.jpg";
+        infoText = "The crop is healthy.";
+        headText = "Healthy";
+    }
+}
+
+// Additional checks for moisture
+else if (moisture < 800) {
+    alert('Moisture should be greater than 800 else the crop will experience drought conditions.');
+    infoText = "This crop is experiencing drought conditions.";
+    headText = "Drought";
+} else if (moisture > 1200 && cropType !== "rice" && cropType !== "coffee") {
+    alert('Moisture should be less than 1200 else the crop will experience flood conditions.');
+    
+}
+
+
+            
+            resultImage.src = imagePath;
+
+            resultImage.classList.remove("hidden");
+            resultInfo.textContent = infoText;
+            resultInfo.classList.remove("hidden");
+            resultHead.textContent = headText;
+            resultHead.classList.remove("hidden");
+            resultInfoClass.classList.remove("hidden");
+
+            // Hide the form
+            var form = document.getElementById("crop-form");
+            form.classList.add("hidden");
+        }
+    </script>
+    <div class="container">
+        <div class="row">
+        <div class="col-md-9">
+            <form id="crop-form" onsubmit="event.preventDefault(); submitForm();">
+                <div class="form-group">
+                    <label for="crop-type" class="label-info">Choose Crop</label>
+                    <select class="form-control" id="crop-type">
+                        <option value="rice">Rice</option>
+                        <option value="sugarcane">Sugarcane</option>
+                        <option value="coffee">Coffee</option>
+                        <option value="maize">Maize</option>
+                        <option value="ragi">Ragi</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="temperature" class="label-info">Temperature</label>
+                    <input type="number" class="form-control" id="temperature" placeholder="Temperature">
+                    <label for="humidity"class="label-info">Humidity</label>
+                    <input type="number" class="form-control" id="humidity" placeholder="Humidity"> 
+                    
+                    <a href="https://www.weather.gov/ama/relative_humidity" target="_blank" class="link-to-convert">click to know how to convert humidity to percentage</a>
+                        <br>
+                    <label for="moisture"class="label-info">Moisture</label>
+                    <input type="number" class="form-control" id="moisture" placeholder="Moisture">
+                </div>
+                <input type="submit" class="submit-button" value="Submit">
+            </form>
+        </div>
+        <div class="col-md-1">
+            <div class="info-sidebar">
+            <h4>Humidity Information:</h4>
+            <ul>
+                <li>If Humidity is 1300, it corresponds to 90%.</li>
+                <li>If Humidity is 1200, it corresponds to 80%.</li>
+                <li>If Humidity is 1100, it corresponds to 70%.</li>
+            </ul>
+        </div>
+        </div>
+        
+        </div>
+        <div class="row">
+            <div class="col-md-12 mt-4">
+                <div class="result-section">
+                    <div class="result-image">
+                        <img src="" alt="Result Image" id="result-image" class="hidden">
+                    </div>
+                    <div class="result-info hidden" id="result-info-class">
+                        <h3 id="result-head"></h3>
+                        <p id="result-info"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock body %}
+</html>

@@ -7,11 +7,12 @@
 {% block body %}
     <style>
         body {
-            background-color: #000000;
-            background-image: url("https://wallpapercave.com/wp/wp7525693.jpg");
+            
             background-position: center;
             background-attachment: fixed; /* Added background-attachment property */
-            opacity: 2;
+        }
+        .container{
+            color: red;
         }
         
         .bttn-pill {
@@ -19,24 +20,36 @@
             padding: 10px 30px;
             font-size: 20px;
             font-weight: 500;
-            color: white;
-            background-color: rgb(4, 54, 4);
-            border: 2px solid rgb(4, 54, 4);
+            
+            
+            border: 2px solid blue; /* Added 'solid' keyword */
             transition: 0.5s;
         }
         
         .bttn-pill:hover {
-            background-color: rgba(4, 54, 4, 0.8);
+            background-color: red;
             border-color: rgba(4, 54, 4, 0.8);
         }
-    </style>
+        
+        /* Added CSS for mobile view */
+        @media (max-width: 768px) {
+            .navbar-nav {
+                flex-direction: column;
+            }
+            
+            .nav-link {
+                padding: 0.5rem 0;
+            }
+        }
 
+    </style>
+    <div class="contaier">
     <div class="row mb-5 text-center text-white laptop">
         <div class="col-lg-10 mx-auto">
-            <h1 class="display-4" style="padding-top: 2%;font-weight: 400;text: white);"><b>Plant Disease
-                    Detection</b></h1>
+            <h1 class="display-4" style="padding-top: 2%;font-weight: 400;"><b>Plant Disease Detection</b></h1>
             <p class="lead" style="font-weight: 500;color: black;">Empowering Farmers with AI: Detecting Plant Diseases for Healthier Crops</p>
         </div>
+    </div>
     </div>
 
     <center class="laptop">

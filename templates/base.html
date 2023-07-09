@@ -17,19 +17,17 @@
 
     {% endblock pagetitle %}</title>
     <style>
-        /* Global styles */
         body {
-            height: 100vh;
-            background-color: #000;
-            background-image: url("https://wallpapercave.com/wp/wp7525693.jpg");
+            background-image: url('/static/farmer.jpg');
+            
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
         }
 
-        /* Navigation */
         .navbar {
-            background-color: transparent;
+            
+            background-color: rgba(0, 0, 0, 0.5);
         }
 
         .navbar-brand,
@@ -75,6 +73,32 @@
         .container .btn:hover {
             background-color: rgba(255, 255, 255, 0.8);
         }
+
+        /* Additional CSS */
+        .nav-item:not(:last-child) {
+            margin-right: 15px;
+        }
+
+        .nav-item a {
+            font-size: 18px;
+        }
+
+        .nav-item a:hover {
+            color: #fff;
+        }
+
+        .container h1 {
+            color: white;
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .container p {
+            color: white;
+            font-size: 18px;
+            line-height: 1.6;
+        }
     </style>
 </head>
 
@@ -92,12 +116,20 @@
                         <a class="nav-link" href="/index">Check Now</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="/data_analysis">Do the data analysis</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/check_weather">Check Weather</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="suggest_crops">Suggest Crops</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/market">Supplements</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/contact">About Us</a>
                     </li>                                                        
-                    
                 </ul>
             </div>
         </div>

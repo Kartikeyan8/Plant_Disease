@@ -39,6 +39,18 @@ def contact_us_page():
 def index_page():
     return render_template('index.html')
 
+@app.route('/data_analysis')
+def data_analysis_page():
+    return render_template('data_analysis.html')
+
+@app.route('/check_weather')
+def check_weather_page():
+    return render_template('check_weather.html')
+
+@app.route('/suggest_crops')
+def suggest_crops_page():
+    return render_template('suggest_crops.html')
+
 @app.route('/mobile-device')
 def mobile_device_detected_page():
     return render_template('mobile-device.html')
